@@ -5,44 +5,35 @@
 #include <concepts>
 #include <type_traits>
 #include <htl/concepts.h>
+#include <htl/detail/compare.h>
 
 namespace htl {
-namespace detail {
 
-// clang-format off
-struct SynthThreeWayFn {
-public:
-    template <class T, class U>
-    [[nodiscard]] constexpr auto operator()(const T &t, const U &u) const
-        noexcept(std::three_way_comparable_with<T, U>
-            ? noexcept(t <=> u)
-            : noexcept(t < u) && noexcept(u < t))
-        requires requires {
-            { t < u } -> BooleanTestable;
-            { u < t } -> BooleanTestable;
-        }
-    {
-        if constexpr (std::three_way_comparable_with<T, U>) {
-            return t <=> u;
-        } else if (t < u) {
-            return std::weak_ordering::less;
-        } else if (u < t) {
-            return std::weak_ordering::greater;
-        } else {
-            return std::weak_ordering::equivalent;
-        }
-    }
-};
-// clang-format on
-
-} // namespace detail
-
+/**
+ * Synthetic three way comparison operation.
+ *
+ * Requires only that the two types compared have implemented the less than
+ * operators (irrespective of order). Falls back to weakest implemented
+ * ordering, or, finally @c std::weak_ordering if only the less than
+ * comparisans can be made.
+ *
+ * @em (niebloid)
+ */
 inline constexpr detail::SynthThreeWayFn synth_three_way{};
 
+/**
+ * Resulting category of a synthetic three way comparison.
+ */
 template <class T, class U = T>
 using SynthThreeWayResult =
     decltype(synth_three_way(std::declval<T &>(), std::declval<U &>()));
 
+/**
+ * Requirements for synthetic three way comparison for one type.
+ *
+ * @tparam The type to be compared.
+ * @tparam Minimum ordering category to satisfy.
+ */
 // clang-format off
 template <class T, class Cat = std::partial_ordering>
 concept SynthThreeWayComparable =
@@ -53,6 +44,13 @@ concept SynthThreeWayComparable =
     } && std::same_as<std::common_comparison_category_t<Cat,
         SynthThreeWayResult<T>>, Cat>;
 
+/**
+ * Requirements for synthetic three way comparison between two types
+ *
+ * @tparam The first type to be compared.
+ * @tparam The second type to be compared.
+ * @tparam Minimum ordering category to satisfy.
+ */
 template <class T, class U, class Cat = std::partial_ordering>
 concept SynthThreeWayComparableWith =
     SynthThreeWayComparable<T, Cat> &&
