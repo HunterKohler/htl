@@ -2,76 +2,34 @@
 #define HTL_TYPE_TRAITS_H_
 
 #include <type_traits>
+#include <htl/detail/type_traits.h>
 
 namespace htl {
 
+/**
+ * Identifies if the type `T` is a character. Namely, `char`,
+ * `unsigned char`, `signed char`, `wchar_t`, `char8_t`, `char16_t`,
+ * `char32_t`, or a const-volatile qualified version thereof.
+ *
+ * @tparam T The target type.
+ */
 template <class T>
-struct is_char : std::false_type {};
+struct is_char : detail::is_char_helper<std::remove_cv_t<T>> {};
 
+/**
+ * Identifies if the type `T` is a byte. Namely, `char`, `signed char`,
+ * `char8_t`, `std::byte`, or a const-volatile qualified type thereof.
+ *
+ * @tparam T The target type.
+ */
 template <class T>
-struct is_char<const T> : is_char<T> {};
-
-template <class T>
-struct is_char<volatile T> : is_char<T> {};
-
-template <>
-struct is_char<char> : std::true_type {};
-
-template <>
-struct is_char<wchar_t> : std::true_type {};
-
-template <>
-struct is_char<signed char> : std::true_type {};
-
-template <>
-struct is_char<unsigned char> : std::true_type {};
-
-template <>
-struct is_char<char8_t> : std::true_type {};
-
-template <>
-struct is_char<char16_t> : std::true_type {};
-
-template <>
-struct is_char<char32_t> : std::true_type {};
-
-template <class T>
-struct is_byte : std::false_type {};
-
-template <class T>
-struct is_byte<const T> : is_byte<T> {};
-
-template <class T>
-struct is_byte<volatile T> : is_byte<T> {};
-
-template <>
-struct is_byte<char> : std::true_type {};
-
-template <>
-struct is_byte<signed char> : std::true_type {};
-
-template <>
-struct is_byte<unsigned char> : std::true_type {};
-
-template <>
-struct is_byte<char8_t> : std::true_type {};
-
-template <>
-struct is_byte<std::byte> : std::true_type {};
-
-template <class T>
-struct is_function_pointer
-    : std::conjunction<std::is_pointer<T>,
-                       std::is_function<std::remove_pointer_t<T>>> {};
+struct is_byte : detail::is_byte_helper<std::remove_cv_t<T>> {};
 
 template <class T>
 inline constexpr bool is_char_v = is_char<T>::value;
 
 template <class T>
 inline constexpr bool is_byte_v = is_byte<T>::value;
-
-template <class T>
-inline constexpr bool is_function_pointer_v = is_function_pointer<T>::value;
 
 } // namespace htl
 
