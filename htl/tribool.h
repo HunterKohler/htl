@@ -3,6 +3,7 @@
 
 #include <compare>
 #include <cstddef>
+#include <cstding>
 #include <iostream>
 #include <memory>
 #include <string_view>
@@ -11,15 +12,6 @@
 namespace htl {
 
 class TriBool {
-public:
-    enum class State : std::uint8_t {
-        Null,
-        False,
-        True,
-    };
-
-    State _state;
-
 public:
     constexpr TriBool() noexcept = default;
 
@@ -43,11 +35,20 @@ public:
 
     friend constexpr std::strong_ordering operator<=>(TriBool, TriBool) //
         noexcept = default;
+
+private:
+    enum class State : std::uint8_t {
+        Null,
+        False,
+        True,
+    };
+
+    State _state;
 };
 
 namespace detail {
 
-inline std::string_view get_tribool_string(TriBool value) noexcept
+constexpr std::string_view get_tribool_string(TriBool value) noexcept
 {
     return value ? "true" : !value ? "false" : "null";
 }
@@ -55,7 +56,7 @@ inline std::string_view get_tribool_string(TriBool value) noexcept
 } // namespace detail
 
 template <class Alloc = std::allocator<char>>
-inline std::basic_string<char, std::char_traits<char>, Alloc>
+constexpr std::basic_string<char, std::char_traits<char>, Alloc>
 to_string(TriBool value, const Alloc &alloc = Alloc())
 {
     return std::basic_string<char, std::char_traits<char>, Alloc>(
@@ -63,7 +64,7 @@ to_string(TriBool value, const Alloc &alloc = Alloc())
 }
 
 template <class CharT, class Traits>
-inline std::basic_ostream<CharT, Traits> &
+constexpr std::basic_ostream<CharT, Traits> &
 operator<<(std::basic_ostream<CharT, Traits> &os, TriBool value)
 {
     os << detail::get_tribool_string(value);
