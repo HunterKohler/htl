@@ -1,5 +1,5 @@
-#ifndef HLIB_CONCEPTS_H_
-#define HLIB_CONCEPTS_H_
+#ifndef HTL_CONCEPTS_H_
+#define HTL_CONCEPTS_H_
 
 #include <chrono>
 #include <concepts>
@@ -12,7 +12,7 @@
 
 // clang-format off
 
-namespace hlib {
+namespace htl {
 
 /**
  * See: https://en.cppreference.com/w/cpp/concepts/boolean-testable
@@ -128,6 +128,6 @@ concept TimedLockable = requires(
     { t.try_lock_until(time) } -> BooleanTestable;
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

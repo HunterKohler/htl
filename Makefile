@@ -18,8 +18,8 @@ GTEST = $(GTEST_LIB) \
 	$(GTEST_INCLUDE) \
 	$(GMOCK_INCLUDE)
 
-LIB = ./build/lib/libhlib.a
-LIB_SRC = $(shell find hlib -type f -name '*.cpp' -not -name '*_test.cpp')
+LIB = ./build/lib/libhtl.a
+LIB_SRC = $(shell find htl -type f -name '*.cpp' -not -name '*_test.cpp')
 LIB_OBJ = $(patsubst %.cpp,build/obj/%.o,$(LIB_SRC))
 TEST_SRC = $(shell find test -type f -name '*.cpp')
 TEST_OBJ = $(patsubst %.cpp,build/obj/%.o,$(TEST_SRC))
@@ -65,8 +65,8 @@ test: $(TEST_BIN)
 	$< --gtest_brief
 	mkdir -p ./build/coverage
 	$(RM) -r ./build/coverage/test.info ./build/coverage/test
-	$(LCOV) --quiet --capture --gcov-tool $(GCOV) --directory ./hlib \
-		--directory ./build/obj/hlib --output-file ./build/coverage/test.info \
+	$(LCOV) --quiet --capture --gcov-tool $(GCOV) --directory ./htl \
+		--directory ./build/obj/htl --output-file ./build/coverage/test.info \
 		--no-external --config-file ./.lcovrc
 	$(GENHTML) --quiet --output-directory ./build/coverage/test  \
 		./build/coverage/test.info --config-file ./.lcovrc

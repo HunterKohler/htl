@@ -1,5 +1,5 @@
-#ifndef HLIB_INTRUSIVE_LIST_H_
-#define HLIB_INTRUSIVE_LIST_H_
+#ifndef HTL_INTRUSIVE_LIST_H_
+#define HTL_INTRUSIVE_LIST_H_
 
 #include <iterator>
 #include <utility>
@@ -7,12 +7,12 @@
 #include <ranges>
 #include <concepts>
 #include <compare>
-#include <hlib/utility.h>
-#include <hlib/detail/simple_hash.h>
-#include <hlib/concepts.h>
-#include <hlib/compare.h>
+#include <htl/utility.h>
+#include <htl/detail/simple_hash.h>
+#include <htl/concepts.h>
+#include <htl/compare.h>
 
-namespace hlib {
+namespace htl {
 
 template <class>
 class IntrusiveList;
@@ -484,6 +484,6 @@ inline bool operator==(const IntrusiveList<T> &a, const IntrusiveList<T> &b)
     return std::ranges::equal(a, b);
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

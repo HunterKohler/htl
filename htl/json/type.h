@@ -1,14 +1,14 @@
-#ifndef HLIB_JSON_TYPE_H_
-#define HLIB_JSON_TYPE_H_
+#ifndef HTL_JSON_TYPE_H_
+#define HTL_JSON_TYPE_H_
 
 #include <cstddef>
 #include <iostream>
 #include <iterator>
 #include <string>
-#include <hlib/json/common.h>
-#include <hlib/utility.h>
+#include <htl/json/common.h>
+#include <htl/utility.h>
 
-namespace hlib::json {
+namespace htl::json {
 
 enum class Type : std::uint8_t {
     Null,
@@ -41,7 +41,7 @@ constexpr const char *get_type_name(Type type)
         return "Object";
     default:
         throw std::invalid_argument(
-            "Invalid underlying value for hlib::json::Type");
+            "Invalid underlying value for htl::json::Type");
     }
 }
 
@@ -73,6 +73,6 @@ operator<<(std::basic_ostream<CharT, Traits> &os, Type type)
     return os;
 }
 
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

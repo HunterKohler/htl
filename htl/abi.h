@@ -1,14 +1,14 @@
-#ifndef HLIB_ABI_H_
-#define HLIB_ABI_H_
+#ifndef HTL_ABI_H_
+#define HTL_ABI_H_
 
 #include <string>
 #include <memory>
 #include <concepts>
 #include <type_traits>
 #include <cxxabi.h>
-#include <hlib/expected.h>
+#include <htl/expected.h>
 
-namespace hlib::abi {
+namespace htl::abi {
 
 inline expected<std::string, std::errc> demangle(const char *name)
 {
@@ -32,6 +32,6 @@ inline expected<std::string, std::errc> demangle(const std::string &name)
     return demangle(name.c_str());
 }
 
-} // namespace hlib::abi
+} // namespace htl::abi
 
 #endif

@@ -1,11 +1,11 @@
-#ifndef HLIB_EXPERIMENTAL_ALIGNED_UNIQUE_PTR_H_
-#define HLIB_EXPERIMENTAL_ALIGNED_UNIQUE_PTR_H_
+#ifndef HTL_EXPERIMENTAL_ALIGNED_UNIQUE_PTR_H_
+#define HTL_EXPERIMENTAL_ALIGNED_UNIQUE_PTR_H_
 
 #include <memory>
 #include <new>
 #include <span>
 
-namespace hlib {
+namespace htl {
 
 inline constexpr std::size_t dynamic_alignment;
 
@@ -16,7 +16,10 @@ class AlignmentStorage {
 public:
     constexpr explicit AlignmentStorage(std::size_t) noexcept {}
 
-    constexpr std::size_t alignment() const noexcept { return Alignment; }
+    constexpr std::size_t alignment() const noexcept
+    {
+        return Alignment;
+    }
 };
 
 template <>
@@ -26,7 +29,10 @@ public:
         : _alignment{ alignment }
     {}
 
-    constexpr std::size_t alignment() const noexcept { return _alignment; }
+    constexpr std::size_t alignment() const noexcept
+    {
+        return _alignment;
+    }
 
 private:
     std::size_t _alignment;
@@ -85,6 +91,6 @@ private:
 template <class T>
 using AlignedUniquePtr = std::unique_ptr<T, AlignedDelete<T>>;
 
-} // namespace hlib
+} // namespace htl
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef HLIB_TAGGED_PTR_H_
-#define HLIB_TAGGED_PTR_H_
+#ifndef HTL_TAGGED_PTR_H_
+#define HTL_TAGGED_PTR_H_
 
 #include <bit>
 #include <compare>
@@ -8,9 +8,9 @@
 #include <iostream>
 #include <memory>
 #include <type_traits>
-#include <hlib/detail/simple_hash.h>
+#include <htl/detail/simple_hash.h>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 auto get_tagged_ptr_value(auto &ptr)
@@ -58,12 +58,18 @@ public:
     template <class U>
         requires(raw_convertible<U>)
     TaggedPtr(U ptr)
-    noexcept(std::is_nothrow_convertible_v<U, pointer>) { reset(ptr); }
+    noexcept(std::is_nothrow_convertible_v<U, pointer>)
+    {
+        reset(ptr);
+    }
 
     template <class U>
         requires(raw_convertible<U>)
     TaggedPtr(U ptr, uint_type tag)
-    noexcept(std::is_nothrow_convertible_v<U, pointer>) { reset(ptr, tag); }
+    noexcept(std::is_nothrow_convertible_v<U, pointer>)
+    {
+        reset(ptr, tag);
+    }
 
     template <class U>
         requires(pointer_convertible<U>)
@@ -84,11 +90,20 @@ public:
         return *this;
     }
 
-    void reset() noexcept { _value = 0; }
+    void reset() noexcept
+    {
+        _value = 0;
+    }
 
-    void reset(std::nullptr_t) noexcept { _value = 0; }
+    void reset(std::nullptr_t) noexcept
+    {
+        _value = 0;
+    }
 
-    void reset(std::nullptr_t, uint_type tag) noexcept { _value = tag & mask; }
+    void reset(std::nullptr_t, uint_type tag) noexcept
+    {
+        _value = tag & mask;
+    }
 
     template <class U>
         requires(raw_convertible<U>)
@@ -112,7 +127,10 @@ public:
         _value = (_value & ~mask) | (new_value & mask);
     }
 
-    uint_type tag() const noexcept { return _value & mask; }
+    uint_type tag() const noexcept
+    {
+        return _value & mask;
+    }
 
     pointer get() const noexcept
     {
@@ -136,7 +154,10 @@ public:
         return get()[n];
     }
 
-    operator bool() const noexcept { return get(); }
+    operator bool() const noexcept
+    {
+        return get();
+    }
 
 private:
     uint_type _value;
@@ -170,14 +191,13 @@ operator<=>(const TaggedPtr<U> &a, const TaggedPtr<V> &b) noexcept
     return detail::get_tagged_ptr_value(a) <=> detail::get_tagged_ptr_value(b);
 }
 
-} // namespace hlib
+} // namespace htl
 
 template <class T>
-struct std::hash<hlib::TaggedPtr<T>> {
-    std::size_t operator()(const hlib::TaggedPtr<T> &ptr) const noexcept
+struct std::hash<htl::TaggedPtr<T>> {
+    std::size_t operator()(const htl::TaggedPtr<T> &ptr) const noexcept
     {
-        return hlib::detail::simple_hash(
-            hlib::detail::get_tagged_ptr_value(ptr));
+        return htl::detail::simple_hash(htl::detail::get_tagged_ptr_value(ptr));
     }
 };
 

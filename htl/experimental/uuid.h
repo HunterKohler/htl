@@ -1,15 +1,15 @@
-#ifndef HLIB_EXPERIMENTAL_UUID_H_
-#define HLIB_EXPERIMENTAL_UUID_H_
+#ifndef HTL_EXPERIMENTAL_UUID_H_
+#define HTL_EXPERIMENTAL_UUID_H_
 
 // #include <cstdint>
 // #include <charconv>
 // #include <random>
 // #include <exception>
 // #include <stdexcept>
-// #include <hlib/codec.h>
-// #include <hlib/detail/byte_array.h>
+// #include <htl/codec.h>
+// #include <htl/detail/byte_array.h>
 
-// namespace hlib {
+// namespace htl {
 
 // enum class UUIDVersion : std::uint8_t {
 //     v1 = 1,
@@ -109,6 +109,6 @@
 // //     return false;
 // // }
 
-// } // namespace hlib
+// } // namespace htl
 
 #endif

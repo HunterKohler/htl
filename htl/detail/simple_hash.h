@@ -1,11 +1,11 @@
-#ifndef HLIB_DETAIL_SIMPLE_HASH_H_
-#define HLIB_DETAIL_SIMPLE_HASH_H_
+#ifndef HTL_DETAIL_SIMPLE_HASH_H_
+#define HTL_DETAIL_SIMPLE_HASH_H_
 
 #include <type_traits>
-#include <hlib/unaligned.h>
-#include <hlib/crypto/siphash.h>
+#include <htl/unaligned.h>
+#include <htl/crypto/siphash.h>
 
-namespace hlib::detail {
+namespace htl::detail {
 
 template <class... Args>
     requires((std::is_trivially_copyable_v<Args> &&
@@ -31,6 +31,6 @@ inline std::size_t simple_hash(const Args &...args) noexcept
     return load_unaligned_le64(dest);
 }
 
-} // namespace hlib::detail
+} // namespace htl::detail
 
 #endif

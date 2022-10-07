@@ -1,11 +1,11 @@
-#ifndef HLIB_UNALIGNED_H_
-#define HLIB_UNALIGNED_H_
+#ifndef HTL_UNALIGNED_H_
+#define HTL_UNALIGNED_H_
 
 #include <concepts>
-#include <hlib/bit.h>
-#include <hlib/type_traits.h>
+#include <htl/bit.h>
+#include <htl/type_traits.h>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 template <bool Cond, class T>
@@ -143,6 +143,6 @@ constexpr void store_unaligned_be64(T *p, std::uint64_t value) noexcept
     store_unaligned<std::uint64_t, std::endian::big>(p, value);
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

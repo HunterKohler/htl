@@ -1,5 +1,5 @@
-#ifndef HLIB_DETAIL_BYTE_ARRAY_H_
-#define HLIB_DETAIL_BYTE_ARRAY_H_
+#ifndef HTL_DETAIL_BYTE_ARRAY_H_
+#define HTL_DETAIL_BYTE_ARRAY_H_
 
 #include <array>
 #include <concepts>
@@ -7,7 +7,7 @@
 #include <type_traits>
 #include <utility>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 template <std::size_t N>
@@ -24,6 +24,6 @@ struct ByteArray : std::array<std::uint8_t, N> {
 };
 
 } // namespace detail
-} // namespace hlib
+} // namespace htl
 
 #endif

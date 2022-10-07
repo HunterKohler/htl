@@ -1,17 +1,17 @@
-#ifndef HLIB_JSON_DOCUMENT_H_
-#define HLIB_JSON_DOCUMENT_H_
+#ifndef HTL_JSON_DOCUMENT_H_
+#define HTL_JSON_DOCUMENT_H_
 
 #include <algorithm>
 #include <memory>
-#include <hlib/utility.h>
-#include <hlib/json/type.h>
-#include <hlib/json/array.h>
-#include <hlib/json/object.h>
-#include <hlib/json/serializer.h>
-#include <hlib/json/initializer.h>
-#include <hlib/detail/simple_hash.h>
+#include <htl/utility.h>
+#include <htl/json/type.h>
+#include <htl/json/array.h>
+#include <htl/json/object.h>
+#include <htl/json/serializer.h>
+#include <htl/json/initializer.h>
+#include <htl/detail/simple_hash.h>
 
-namespace hlib::json {
+namespace htl::json {
 
 template <class Allocator>
 class BasicDocument {
@@ -134,7 +134,10 @@ public:
         _construct(std::move(other));
     }
 
-    ~BasicDocument() { _destroy(); }
+    ~BasicDocument()
+    {
+        _destroy();
+    }
 
     BasicDocument &operator=(InitializerList value)
     {
@@ -154,34 +157,109 @@ public:
         return *this;
     }
 
-    Allocator get_allocator() const noexcept { return _alloc; }
+    Allocator get_allocator() const noexcept
+    {
+        return _alloc;
+    }
 
-    Type type() const noexcept { return _type; }
+    Type type() const noexcept
+    {
+        return _type;
+    }
 
-    void assign(Null) { _reset(nullptr); }
-    void assign(Bool value) { _reset(value); }
-    void assign(std::floating_point auto value) { _reset(value); }
-    void assign(std::integral auto value) { _reset(value); }
-    void assign(const char *value) { _reset(value); }
-    void assign(std::string_view value) { _reset(value); }
-    void assign(const String &value) { _assign_string(value); }
-    void assign(const Array &value) { _assign_array(value); }
-    void assign(const Object &value) { _assign_object(value); }
-    void assign(const Document &value) { _assign_document(value); }
-    void assign(String &&value) { _assign_string(std::move(value)); }
-    void assign(Array &&value) { _assign_array(std::move(value)); }
-    void assign(Object &&value) { _assign_object(std::move(value)); }
-    void assign(Document &&value) { _assign_document(std::move(value)); }
-    void assign(const DocumentInit<Allocator> &value) { _reset(value); }
-    void assign(InitializerList value) { _reset(value); }
+    void assign(Null)
+    {
+        _reset(nullptr);
+    }
+    void assign(Bool value)
+    {
+        _reset(value);
+    }
+    void assign(std::floating_point auto value)
+    {
+        _reset(value);
+    }
+    void assign(std::integral auto value)
+    {
+        _reset(value);
+    }
+    void assign(const char *value)
+    {
+        _reset(value);
+    }
+    void assign(std::string_view value)
+    {
+        _reset(value);
+    }
+    void assign(const String &value)
+    {
+        _assign_string(value);
+    }
+    void assign(const Array &value)
+    {
+        _assign_array(value);
+    }
+    void assign(const Object &value)
+    {
+        _assign_object(value);
+    }
+    void assign(const Document &value)
+    {
+        _assign_document(value);
+    }
+    void assign(String &&value)
+    {
+        _assign_string(std::move(value));
+    }
+    void assign(Array &&value)
+    {
+        _assign_array(std::move(value));
+    }
+    void assign(Object &&value)
+    {
+        _assign_object(std::move(value));
+    }
+    void assign(Document &&value)
+    {
+        _assign_document(std::move(value));
+    }
+    void assign(const DocumentInit<Allocator> &value)
+    {
+        _reset(value);
+    }
+    void assign(InitializerList value)
+    {
+        _reset(value);
+    }
 
-    bool is_null() const noexcept { return _type == Type::Null; }
-    bool is_bool() const noexcept { return _type == Type::Bool; }
-    bool is_int() const noexcept { return _type == Type::Int; }
-    bool is_float() const noexcept { return _type == Type::Float; }
-    bool is_string() const noexcept { return _type == Type::String; }
-    bool is_array() const noexcept { return _type == Type::Array; }
-    bool is_object() const noexcept { return _type == Type::Object; }
+    bool is_null() const noexcept
+    {
+        return _type == Type::Null;
+    }
+    bool is_bool() const noexcept
+    {
+        return _type == Type::Bool;
+    }
+    bool is_int() const noexcept
+    {
+        return _type == Type::Int;
+    }
+    bool is_float() const noexcept
+    {
+        return _type == Type::Float;
+    }
+    bool is_string() const noexcept
+    {
+        return _type == Type::String;
+    }
+    bool is_array() const noexcept
+    {
+        return _type == Type::Array;
+    }
+    bool is_object() const noexcept
+    {
+        return _type == Type::Object;
+    }
 
     Bool &as_bool() &
     {
@@ -368,7 +446,10 @@ private:
         DeleteAllocatorTraits::deallocate(delete_alloc, p, 1);
     }
 
-    void _construct(Null) { _type = Type::Null; }
+    void _construct(Null)
+    {
+        _type = Type::Null;
+    }
 
     void _construct(Bool value)
     {
@@ -388,25 +469,55 @@ private:
         _float = value;
     }
 
-    void _construct(const char *value) { _construct_string(value); }
+    void _construct(const char *value)
+    {
+        _construct_string(value);
+    }
 
-    void _construct(std::string_view value) { _construct_string(value); }
+    void _construct(std::string_view value)
+    {
+        _construct_string(value);
+    }
 
-    void _construct(const String &value) { _construct_string(value); }
+    void _construct(const String &value)
+    {
+        _construct_string(value);
+    }
 
-    void _construct(const Array &value) { _construct_array(value); }
+    void _construct(const Array &value)
+    {
+        _construct_array(value);
+    }
 
-    void _construct(const Object &value) { _construct_object(value); }
+    void _construct(const Object &value)
+    {
+        _construct_object(value);
+    }
 
-    void _construct(const Document &value) { _construct_document(value); }
+    void _construct(const Document &value)
+    {
+        _construct_document(value);
+    }
 
-    void _construct(String &&value) { _construct_string(std::move(value)); }
+    void _construct(String &&value)
+    {
+        _construct_string(std::move(value));
+    }
 
-    void _construct(Array &&value) { _construct_array(std::move(value)); }
+    void _construct(Array &&value)
+    {
+        _construct_array(std::move(value));
+    }
 
-    void _construct(Object &&value) { _construct_object(std::move(value)); }
+    void _construct(Object &&value)
+    {
+        _construct_object(std::move(value));
+    }
 
-    void _construct(Document &&value) { _construct_document(std::move(value)); }
+    void _construct(Document &&value)
+    {
+        _construct_document(std::move(value));
+    }
 
     void _construct(const DocumentInit<Allocator> &value)
     {
@@ -836,6 +947,6 @@ operator<<(std::basic_ostream<CharT, Traits> &os, const BasicDocument<T> &value)
     return os;
 }
 
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

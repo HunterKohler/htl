@@ -1,12 +1,12 @@
-#ifndef HLIB_CRYPTO_DETAIL_MDXHASH_H_
-#define HLIB_CRYPTO_DETAIL_MDXHASH_H_
+#ifndef HTL_CRYPTO_DETAIL_MDXHASH_H_
+#define HTL_CRYPTO_DETAIL_MDXHASH_H_
 
 #include <algorithm>
 #include <cstdint>
 #include <ranges>
-#include <hlib/unaligned.h>
+#include <htl/unaligned.h>
 
-namespace hlib::detail {
+namespace htl::detail {
 
 template <class T>
 class MDXHash {
@@ -14,7 +14,10 @@ public:
     static constexpr std::size_t block_size = T::block_size;
     static constexpr std::endian byte_order = T::byte_order;
 
-    MDXHash() noexcept { reset(); }
+    MDXHash() noexcept
+    {
+        reset();
+    }
 
     void reset() noexcept
     {
@@ -90,6 +93,6 @@ private:
     T _state;
 };
 
-} // namespace hlib::detail
+} // namespace htl::detail
 
 #endif

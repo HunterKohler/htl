@@ -1,5 +1,5 @@
-#ifndef HLIB_CODEC_H_
-#define HLIB_CODEC_H_
+#ifndef HTL_CODEC_H_
+#define HTL_CODEC_H_
 
 #include <cstddef>
 #include <cstdint>
@@ -8,13 +8,13 @@
 #include <concepts>
 #include <type_traits>
 #include <algorithm>
-#include <hlib/type_traits.h>
-#include <hlib/concepts.h>
-#include <hlib/utility.h>
-#include <hlib/detail/iterator.h>
-#include <hlib/detail/codec.h>
+#include <htl/type_traits.h>
+#include <htl/concepts.h>
+#include <htl/utility.h>
+#include <htl/detail/iterator.h>
+#include <htl/detail/codec.h>
 
-namespace hlib {
+namespace htl {
 
 template <class I, class O, class E>
 struct CodecResult {
@@ -232,6 +232,6 @@ constexpr HexDecodeResult<std::ranges::borrowed_iterator_t<R>, O> hex_decode(
 //         std::move(bound));
 // }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

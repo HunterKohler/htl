@@ -1,10 +1,10 @@
-#ifndef HLIB_BYTE_ARRAY_H_
-#define HLIB_BYTE_ARRAY_H_
+#ifndef HTL_BYTE_ARRAY_H_
+#define HTL_BYTE_ARRAY_H_
 
 #include <array>
 #include <type_traits>
 
-namespace hlib {
+namespace htl {
 
 template <std::size_t N>
 struct ByteArray : std::array<std::uint8_t, N> {
@@ -54,6 +54,6 @@ struct ByteArray : std::array<std::uint8_t, N> {
 //     return os;
 // }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

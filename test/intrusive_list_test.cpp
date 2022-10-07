@@ -3,9 +3,9 @@
 #include <utility>
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include <hlib/intrusive_list.h>
+#include <htl/intrusive_list.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 using testing::ElementsAre;
 using testing::ElementsAreArray;
@@ -265,4 +265,4 @@ TEST(IntrusiveListTest, Iterators)
         std::as_const(l1).rbegin(), std::as_const(l1).rend(), { n3, n2, n1 });
 }
 
-} // namespace hlib::test
+} // namespace htl::test

@@ -1,9 +1,9 @@
-#ifndef HLIB_EXPERIMENTAL_DESTROY_GUARD_H_
-#define HLIB_EXPERIMENTAL_DESTROY_GUARD_H_
+#ifndef HTL_EXPERIMENTAL_DESTROY_GUARD_H_
+#define HTL_EXPERIMENTAL_DESTROY_GUARD_H_
 
 #include <iterator>
 
-namespace hlib {
+namespace htl {
 
 template <std::input_iterator I>
     requires std::destructible<std::iter_value_t<I>> &&
@@ -54,6 +54,6 @@ public:
     void release() noexcept {}
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

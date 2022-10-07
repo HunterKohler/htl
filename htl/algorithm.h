@@ -1,7 +1,7 @@
-#ifndef HLIB_ALGORITHM_H_
-#define HLIB_ALGORITHM_H_
+#ifndef HTL_ALGORITHM_H_
+#define HTL_ALGORITHM_H_
 
-namespace hlib {
+namespace htl {
 
 template <class I, class O, class T, class E>
 struct InOutValueErrorResult {
@@ -54,6 +54,6 @@ struct InOutErrorResult {
     }
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

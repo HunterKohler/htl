@@ -1,9 +1,9 @@
 
 #include <vector>
 #include <gtest/gtest.h>
-#include <hlib/crypto/siphash.h>
+#include <htl/crypto/siphash.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 const std::vector<std::vector<std::uint8_t>> siphash_test_digests{
     { 0x31, 0x0E, 0x0E, 0xDD, 0x47, 0xDB, 0x6F, 0x72 },
@@ -90,4 +90,4 @@ TEST(SipHashTest, Hash)
     }
 }
 
-} // namespace hlib::test
+} // namespace htl::test

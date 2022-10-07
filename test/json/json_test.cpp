@@ -1,12 +1,12 @@
 // #include <vector>
 // #include <memory_resource>
 // #include <gtest/gtest.h>
-// #include <hlib/json.h>
-// #include <hlib/test/allocator.h>
+// #include <htl/json.h>
+// #include <htl/test/allocator.h>
 
-// namespace hlib::test {
+// namespace htl::test {
 
-// using namespace hlib::json;
+// using namespace htl::json;
 
 // TEST(BasicDocumentTest, DefaultConstructor)
 // {
@@ -364,4 +364,4 @@
 // //     GTEST_SKIP();
 // // }
 
-// } // namespace hlib::test
+// } // namespace htl::test

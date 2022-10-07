@@ -1,5 +1,5 @@
-#ifndef HLIB_JSON_COMMON_H_
-#define HLIB_JSON_COMMON_H_
+#ifndef HTL_JSON_COMMON_H_
+#define HTL_JSON_COMMON_H_
 
 #include <concepts>
 #include <cstddef>
@@ -11,7 +11,7 @@
 #include <string_view>
 #include <string>
 
-namespace hlib::json {
+namespace htl::json {
 
 template <class Allocator = std::allocator<std::byte>>
 using BasicString = std::basic_string<
@@ -56,6 +56,6 @@ using Object = BasicObject<std::pmr::polymorphic_allocator<std::byte>>;
 using Document = BasicDocument<std::pmr::polymorphic_allocator<std::byte>>;
 
 } // namespace pmr
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

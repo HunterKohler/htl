@@ -1,15 +1,15 @@
-#ifndef HLIB_JSON_OBJECT_H_
-#define HLIB_JSON_OBJECT_H_
+#ifndef HTL_JSON_OBJECT_H_
+#define HTL_JSON_OBJECT_H_
 
 #include <memory>
 #include <iterator>
 #include <ranges>
 #include <unordered_map>
-#include <hlib/json/common.h>
-#include <hlib/json/serializer.h>
-#include <hlib/json/initializer.h>
+#include <htl/json/common.h>
+#include <htl/json/serializer.h>
+#include <htl/json/initializer.h>
 
-namespace hlib::json {
+namespace htl::json {
 
 namespace detail {
 
@@ -173,6 +173,6 @@ operator<<(std::basic_ostream<CharT, Traits> &os, const BasicObject<T> &value)
     return os;
 }
 
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

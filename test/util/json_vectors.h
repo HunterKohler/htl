@@ -4,9 +4,9 @@
 #include <array>
 #include <utility>
 #include <string_view>
-#include <hlib/json/document.h>
+#include <htl/json/document.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 using namespace json;
 
@@ -540,6 +540,6 @@ inline const JSONTestVector json_test_vectors[]{
     // { "y", "string_with_del_character", "[\"a\u007fa\"]" },
 };
 
-} // namespace hlib::test
+} // namespace htl::test
 
 #endif

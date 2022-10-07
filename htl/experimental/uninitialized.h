@@ -1,5 +1,5 @@
-#ifndef HLIB_EXPERIMENTAL_UNINITIALIZED_H_
-#define HLIB_EXPERIMENTAL_UNINITIALIZED_H_
+#ifndef HTL_EXPERIMENTAL_UNINITIALIZED_H_
+#define HTL_EXPERIMENTAL_UNINITIALIZED_H_
 
 #include <memory>
 #include <ranges>
@@ -33,31 +33,55 @@ public:
 
     constexpr ~Uninitialized() {}
 
-    constexpr T *operator->() noexcept { return std::addressof(_value); }
+    constexpr T *operator->() noexcept
+    {
+        return std::addressof(_value);
+    }
 
     constexpr const T *operator->() const noexcept
     {
         return std::addressof(_value);
     }
 
-    constexpr T &operator*() &noexcept { return _value; }
+    constexpr T &operator*() &noexcept
+    {
+        return _value;
+    }
 
-    constexpr T &&operator*() &&noexcept { return std::move(_value); }
+    constexpr T &&operator*() &&noexcept
+    {
+        return std::move(_value);
+    }
 
-    constexpr const T &operator*() const &noexcept { return _value; }
+    constexpr const T &operator*() const &noexcept
+    {
+        return _value;
+    }
 
     constexpr const T &&operator*() const &&noexcept
     {
         return std::move(_value);
     }
 
-    constexpr T &value() &noexcept { return _value; }
+    constexpr T &value() &noexcept
+    {
+        return _value;
+    }
 
-    constexpr T &&value() &&noexcept { return std::move(_value); }
+    constexpr T &&value() &&noexcept
+    {
+        return std::move(_value);
+    }
 
-    constexpr const T &value() const &noexcept { return _value; }
+    constexpr const T &value() const &noexcept
+    {
+        return _value;
+    }
 
-    constexpr const T &&value() const &&noexcept { return std::move(_value); }
+    constexpr const T &&value() const &&noexcept
+    {
+        return std::move(_value);
+    }
 
     template <class... Args>
         requires(std::constructible_from<T, Args...>)

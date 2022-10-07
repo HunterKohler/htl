@@ -1,10 +1,10 @@
 #include <gtest/gtest.h>
-#include <hlib/json/document.h>
+#include <htl/json/document.h>
 #include "../util/allocator.h"
 
-namespace hlib::test {
+namespace htl::test {
 
-using namespace hlib::json;
+using namespace htl::json;
 
 template <class Allocator>
 static void test_document_is_type(BasicDocument<Allocator> &alloc, Type type)
@@ -228,4 +228,4 @@ TEST(JSONDocumentTest, ObjectMoveConstructor)
     ASSERT_EQ(value.as_object(), data);
 }
 
-} // namespace hlib::test
+} // namespace htl::test

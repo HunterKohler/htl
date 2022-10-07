@@ -1,5 +1,5 @@
-#ifndef HLIB_BIT_H_
-#define HLIB_BIT_H_
+#ifndef HTL_BIT_H_
+#define HTL_BIT_H_
 
 #include <bit>
 #include <concepts>
@@ -7,7 +7,7 @@
 #include <climits>
 #include <ranges>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 constexpr std::uint16_t byteswap16(std::uint16_t value) noexcept
@@ -63,6 +63,6 @@ constexpr T byteswap(T value) noexcept
     }
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

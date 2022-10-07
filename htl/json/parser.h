@@ -1,18 +1,18 @@
-#ifndef HLIB_JSON_PARSER_H_
-#define HLIB_JSON_PARSER_H_
+#ifndef HTL_JSON_PARSER_H_
+#define HTL_JSON_PARSER_H_
 
 #include <cmath>
 #include <cstdint>
 #include <charconv>
 #include <limits>
 #include <system_error>
-#include <hlib/algorithm.h>
-#include <hlib/ascii.h>
-#include <hlib/json/common.h>
-#include <hlib/json/document.h>
-#include <hlib/json/detail/parser.h>
+#include <htl/algorithm.h>
+#include <htl/ascii.h>
+#include <htl/json/common.h>
+#include <htl/json/document.h>
+#include <htl/json/detail/parser.h>
 
-namespace hlib::json {
+namespace htl::json {
 
 template <class T, class I, class E>
 struct ParseResult {
@@ -108,6 +108,6 @@ using Parser =
 
 } // namespace pmr
 
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

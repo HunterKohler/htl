@@ -1,9 +1,9 @@
-#ifndef HLIB_INITIALIZER_H_
-#define HLIB_INITIALIZER_H_
+#ifndef HTL_INITIALIZER_H_
+#define HTL_INITIALIZER_H_
 
-#include <hlib/json/common.h>
+#include <htl/json/common.h>
 
-namespace hlib::json {
+namespace htl::json {
 namespace detail {
 
 enum class DocumentInitType : std::uint8_t {
@@ -233,6 +233,6 @@ private:
 template <class Allocator>
 using ItemInit = std::pair<StringInit<Allocator>, DocumentInit<Allocator>>;
 
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

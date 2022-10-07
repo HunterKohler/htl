@@ -1,5 +1,5 @@
-#ifndef HLIB_WRITER_H_
-#define HLIB_WRITER_H_
+#ifndef HTL_WRITER_H_
+#define HTL_WRITER_H_
 
 #include <concepts>
 #include <iterator>
@@ -7,10 +7,10 @@
 #include <type_traits>
 #include <charconv>
 #include <utility>
-#include <hlib/utility.h>
-#include <hlib/type_traits.h>
+#include <htl/utility.h>
+#include <htl/type_traits.h>
 
-namespace hlib {
+namespace htl {
 
 template <std::weakly_incrementable O>
 class Writer {
@@ -144,6 +144,6 @@ public:
 template <std::weakly_incrementable O>
 StringWriter(O) -> StringWriter<O>;
 
-} // namespace hlib
+} // namespace htl
 
 #endif

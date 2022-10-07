@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include <hlib/scope_guard.h>
+#include <htl/scope_guard.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 TEST(ErrnoScopeGuardTest, MoveConstruct)
 {
@@ -100,4 +100,4 @@ TEST(ErrnoScopeGuardTest, Value)
     ASSERT_EQ(guard.value(), 1);
 }
 
-} // namespace hlib::test
+} // namespace htl::test

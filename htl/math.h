@@ -1,12 +1,12 @@
-#ifndef HLIB_MATH_H_
-#define HLIB_MATH_H_
+#ifndef HTL_MATH_H_
+#define HTL_MATH_H_
 
 #include <concepts>
 #include <type_traits>
 #include <utility>
 #include <limits>
 
-namespace hlib {
+namespace htl {
 
 constexpr bool checked_add(std::integral auto a, std::integral auto b,
                            std::integral auto &res) noexcept
@@ -50,6 +50,6 @@ constexpr bool signbit(T value) noexcept
     }
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

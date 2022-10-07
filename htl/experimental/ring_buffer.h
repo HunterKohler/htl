@@ -1,5 +1,5 @@
-#ifndef HLIB_EXPERIMENTAL_RING_BUFFER_H_
-#define HLIB_EXPERIMENTAL_RING_BUFFER_H_
+#ifndef HTL_EXPERIMENTAL_RING_BUFFER_H_
+#define HTL_EXPERIMENTAL_RING_BUFFER_H_
 
 #include <algorithm>
 #include <array>
@@ -8,9 +8,9 @@
 #include <iterator>
 #include <memory>
 #include <ranges>
-#include <hlib/compare.h>
+#include <htl/compare.h>
 
-namespace hlib {
+namespace htl {
 
 template <class T, std::size_t N>
 class RingBuffer {
@@ -655,6 +655,6 @@ operator<=>(const RingBuffer<T, N> &a, const RingBuffer<T, N> &b)
         a, b, synth_three_way);
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

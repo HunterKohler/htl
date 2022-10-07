@@ -1,9 +1,9 @@
-#ifndef HLIB_TYPE_TRAITS_H_
-#define HLIB_TYPE_TRAITS_H_
+#ifndef HTL_TYPE_TRAITS_H_
+#define HTL_TYPE_TRAITS_H_
 
 #include <type_traits>
 
-namespace hlib {
+namespace htl {
 
 template <class T>
 struct is_char : std::false_type {};
@@ -73,6 +73,6 @@ inline constexpr bool is_byte_v = is_byte<T>::value;
 template <class T>
 inline constexpr bool is_function_pointer_v = is_function_pointer<T>::value;
 
-} // namespace hlib
+} // namespace htl
 
 #endif

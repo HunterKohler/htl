@@ -1,12 +1,12 @@
-#ifndef HLIB_JSON_ARRAY_H_
-#define HLIB_JSON_ARRAY_H_
+#ifndef HTL_JSON_ARRAY_H_
+#define HTL_JSON_ARRAY_H_
 
 #include <memory>
 #include <unordered_map>
-#include <hlib/json/common.h>
-#include <hlib/json/initializer.h>
+#include <htl/json/common.h>
+#include <htl/json/initializer.h>
 
-namespace hlib::json {
+namespace htl::json {
 
 namespace detail {
 
@@ -131,6 +131,6 @@ operator<<(std::basic_ostream<CharT, Traits> &os, const BasicArray<T> &value)
     return os;
 }
 
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

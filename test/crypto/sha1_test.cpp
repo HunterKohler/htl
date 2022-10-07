@@ -3,13 +3,13 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <hlib/crypto/sha1.h>
-#include <hlib/json/document.h>
-#include <hlib/json/parser.h>
+#include <htl/crypto/sha1.h>
+#include <htl/json/document.h>
+#include <htl/json/parser.h>
 #include <gtest/gtest.h>
 #include "./util.h"
 
-namespace hlib::test {
+namespace htl::test {
 
 TEST(SHA1Test, Hash)
 {
@@ -67,4 +67,4 @@ TEST(SHA1Test, Hash)
 //     }
 // }
 
-} // namespace hlib::test
+} // namespace htl::test

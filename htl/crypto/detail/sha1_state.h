@@ -1,11 +1,11 @@
-#ifndef HLIB_CRYPTO_DETAIL_SHA1_STATE_H_
-#define HLIB_CRYPTO_DETAIL_SHA1_STATE_H_
+#ifndef HTL_CRYPTO_DETAIL_SHA1_STATE_H_
+#define HTL_CRYPTO_DETAIL_SHA1_STATE_H_
 
 #include <bit>
 #include <cstdint>
-#include <hlib/unaligned.h>
+#include <htl/unaligned.h>
 
-namespace hlib::detail {
+namespace htl::detail {
 
 struct SHA1State {
     static constexpr std::size_t block_size = 64;
@@ -190,6 +190,6 @@ struct SHA1State {
     }
 };
 
-} // namespace hlib::detail
+} // namespace htl::detail
 
 #endif

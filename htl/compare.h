@@ -1,12 +1,12 @@
-#ifndef HLIB_COMPARE_H_
-#define HLIB_COMPARE_H_
+#ifndef HTL_COMPARE_H_
+#define HTL_COMPARE_H_
 
 #include <compare>
 #include <concepts>
 #include <type_traits>
-#include <hlib/concepts.h>
+#include <htl/concepts.h>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 // clang-format off
@@ -66,6 +66,6 @@ concept SynthThreeWayComparableWith =
             const std::remove_reference_t<U> &>, Cat>;
 // clang-format on
 
-} // namespace hlib
+} // namespace htl
 
 #endif

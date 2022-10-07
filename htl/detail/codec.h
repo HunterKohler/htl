@@ -1,12 +1,12 @@
-#ifndef HLIB_DETAIL_CODEC_H_
-#define HLIB_DETAIL_CODEC_H_
+#ifndef HTL_DETAIL_CODEC_H_
+#define HTL_DETAIL_CODEC_H_
 
 #include <cstdint>
 #include <system_error>
 #include <vector>
 #include <string>
 
-namespace hlib::detail {
+namespace htl::detail {
 
 inline constexpr char codec_hex_charset[]{ "0123456789ABCDEF" };
 
@@ -263,6 +263,6 @@ constexpr std::errc try_bin_decode(I &first, S &last, O &out, B &bound)
 //     I &first, S &last, O &out, B &bound, const std::uint8_t *table)
 // {}
 
-} // namespace hlib::detail
+} // namespace htl::detail
 
 #endif

@@ -1,11 +1,11 @@
-#ifndef HLIB_EXPERIMENTAL_INT128_H_
-#define HLIB_EXPERIMENTAL_INT128_H_
+#ifndef HTL_EXPERIMENTAL_INT128_H_
+#define HTL_EXPERIMENTAL_INT128_H_
 
 #include <cstdint>
 #include <limits>
-#include <hlib/math.h>
+#include <htl/math.h>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 template <std::endian, class HighWord>
@@ -455,6 +455,6 @@ private:
     detail::UInt128Value _value;
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

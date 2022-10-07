@@ -1,5 +1,5 @@
-#ifndef HLIB_EXPERIMENTAL_BIGINT_H_
-#define HLIB_EXPERIMENTAL_BIGINT_H_
+#ifndef HTL_EXPERIMENTAL_BIGINT_H_
+#define HTL_EXPERIMENTAL_BIGINT_H_
 
 #include <algorithm>
 #include <cstddef>
@@ -9,9 +9,9 @@
 #include <limits>
 #include <iosfwd>
 #include <vector>
-#include <hlib/math.h>
+#include <htl/math.h>
 
-namespace hlib {
+namespace htl {
 
 template <class Allocator>
 class BasicBigInt {
@@ -431,15 +431,15 @@ using BigInt = BasicBigInt<std::pmr::polymorphic_allocator<std::byte>>;
 
 } // namespace pmr
 
-} // namespace hlib
+} // namespace htl
 
 template <class Alloc>
-struct std::hash<hlib::BasicBigInt<Alloc>> {
-    std::size_t operator()(const hlib::BasicBigInt<Alloc> &value) noexcept;
+struct std::hash<htl::BasicBigInt<Alloc>> {
+    std::size_t operator()(const htl::BasicBigInt<Alloc> &value) noexcept;
 };
 
 template <class Alloc>
-struct std::numeric_limits<hlib::BasicBigInt<Alloc>> {
+struct std::numeric_limits<htl::BasicBigInt<Alloc>> {
     static constexpr bool is_specialized = true;
 
     static constexpr bool is_signed = true;
@@ -487,47 +487,47 @@ struct std::numeric_limits<hlib::BasicBigInt<Alloc>> {
 
     static constexpr bool tinyness_before = false;
 
-    static constexpr hlib::BasicBigInt<Alloc> lowest() noexcept
+    static constexpr htl::BasicBigInt<Alloc> lowest() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> min() noexcept
+    static constexpr htl::BasicBigInt<Alloc> min() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> max() noexcept
+    static constexpr htl::BasicBigInt<Alloc> max() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> epsilon() noexcept
+    static constexpr htl::BasicBigInt<Alloc> epsilon() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> round_error() noexcept
+    static constexpr htl::BasicBigInt<Alloc> round_error() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> infinity() noexcept
+    static constexpr htl::BasicBigInt<Alloc> infinity() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> quiet_NaN() noexcept
+    static constexpr htl::BasicBigInt<Alloc> quiet_NaN() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> signaling_NaN() noexcept
+    static constexpr htl::BasicBigInt<Alloc> signaling_NaN() noexcept
     {
         return {};
     }
 
-    static constexpr hlib::BasicBigInt<Alloc> denorm_min() noexcept
+    static constexpr htl::BasicBigInt<Alloc> denorm_min() noexcept
     {
         return {};
     }

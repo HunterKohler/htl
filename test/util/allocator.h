@@ -4,7 +4,7 @@
 #include <memory>
 #include <unordered_map>
 
-namespace hlib::test {
+namespace htl::test {
 
 template <class T>
 struct DefaultInitAllocator {
@@ -17,7 +17,10 @@ struct DefaultInitAllocator {
         : state{ other.state }
     {}
 
-    T *allocate(std::size_t n) { return std::allocator<T>{}.allocate(n); }
+    T *allocate(std::size_t n)
+    {
+        return std::allocator<T>{}.allocate(n);
+    }
 
     void deallocate(T *p, std::size_t n)
     {
@@ -125,6 +128,6 @@ struct PropagatingAllocator : IdentityAllocator<T> {
     }
 };
 
-} // namespace hlib::test
+} // namespace htl::test
 
 #endif

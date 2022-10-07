@@ -1,5 +1,5 @@
-#ifndef HLIB_DYNAMIC_LIBRARY_H_
-#define HLIB_DYNAMIC_LIBRARY_H_
+#ifndef HTL_DYNAMIC_LIBRARY_H_
+#define HTL_DYNAMIC_LIBRARY_H_
 
 #include <concepts>
 #include <cstdint>
@@ -7,9 +7,9 @@
 #include <stdexcept>
 #include <string>
 #include <dlfcn.h>
-#include <hlib/detail/bitmask.h>
+#include <htl/detail/bitmask.h>
 
-namespace hlib {
+namespace htl {
 
 class DynamicLibraryError : public std::runtime_error {
 public:
@@ -104,7 +104,10 @@ public:
         return *this;
     }
 
-    ~DynamicLibrary() { reset(); }
+    ~DynamicLibrary()
+    {
+        reset();
+    }
 
     void reset()
     {
@@ -174,9 +177,15 @@ public:
         return _handle;
     }
 
-    [[nodiscard]] bool loaded() const noexcept { return _handle; }
+    [[nodiscard]] bool loaded() const noexcept
+    {
+        return _handle;
+    }
 
-    [[nodiscard]] explicit operator bool() const noexcept { return _handle; }
+    [[nodiscard]] explicit operator bool() const noexcept
+    {
+        return _handle;
+    }
 
     friend bool operator==(
         const DynamicLibrary &a, const DynamicLibrary &b) noexcept = default;
@@ -211,6 +220,6 @@ private:
     }
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

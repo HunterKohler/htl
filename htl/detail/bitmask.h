@@ -1,7 +1,7 @@
-#ifndef HLIB_DETAIL_BITMASK_H_
-#define HLIB_DETAIL_BITMASK_H_
+#ifndef HTL_DETAIL_BITMASK_H_
+#define HTL_DETAIL_BITMASK_H_
 
-namespace hlib::detail {
+namespace htl::detail {
 
 template <class T>
     requires std::is_enum_v<T>
@@ -37,6 +37,6 @@ constexpr T bitmask_not(T a) noexcept
     return static_cast<T>(~static_cast<std::underlying_type_t<T>>(a));
 }
 
-} // namespace hlib::detail
+} // namespace htl::detail
 
 #endif

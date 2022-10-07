@@ -1,5 +1,5 @@
-#ifndef HLIB_EXPERIMENTAL_BUFFER_H_
-#define HLIB_EXPERIMENTAL_BUFFER_H_
+#ifndef HTL_EXPERIMENTAL_BUFFER_H_
+#define HTL_EXPERIMENTAL_BUFFER_H_
 
 #include <cstddef>
 #include <cstdint>
@@ -7,7 +7,7 @@
 #include <type_traits>
 #include <iterator>
 
-namespace hlib {
+namespace htl {
 
 template <class T, class Allocator = std::allocator<T>>
     requires std::is_trivially_destructible_v<T>
@@ -386,7 +386,7 @@ private:
     static auto _at(auto &self, size_type n)
     {
         if (n >= self._size) {
-            throw std::out_of_range("hlib::Buffer::at(): Index out of range");
+            throw std::out_of_range("htl::Buffer::at(): Index out of range");
         }
 
         return self[n];
@@ -429,6 +429,6 @@ private:
     }
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

@@ -1,11 +1,11 @@
-#ifndef HLIB_CRYPTO_SIPHASH_H_
-#define HLIB_CRYPTO_SIPHASH_H_
+#ifndef HTL_CRYPTO_SIPHASH_H_
+#define HTL_CRYPTO_SIPHASH_H_
 
 #include <cstddef>
 #include <cstdint>
-#include <hlib/unaligned.h>
+#include <htl/unaligned.h>
 
-namespace hlib {
+namespace htl {
 
 template <std::size_t C, std::size_t D>
 class BasicSipHash {
@@ -23,7 +23,10 @@ public:
         context.finalize(dest);
     }
 
-    explicit BasicSipHash(const std::uint8_t *key) noexcept { reset(key); }
+    explicit BasicSipHash(const std::uint8_t *key) noexcept
+    {
+        reset(key);
+    }
 
     void reset(const std::uint8_t *key) noexcept
     {
@@ -133,6 +136,6 @@ private:
 
 using SipHash = BasicSipHash<2, 4>;
 
-} // namespace hlib
+} // namespace htl
 
 #endif

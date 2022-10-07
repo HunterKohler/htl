@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
-#include <hlib/experimental/bigint.h>
+#include <htl/experimental/bigint.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 TEST(BigIntTest, Parse) {}
 
-} // namespace hlib::test
+} // namespace htl::test

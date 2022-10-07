@@ -1,8 +1,8 @@
 #include <ranges>
 #include <gtest/gtest.h>
-#include <hlib/ascii.h>
+#include <htl/ascii.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 constexpr std::ranges::iota_view ascii_view{ 0, 128 };
 
@@ -91,4 +91,4 @@ TEST(AsciiTest, AsciiToUpper)
     assert_same_under_ascii(ascii_toupper, toupper);
 }
 
-} // namespace hlib::test
+} // namespace htl::test

@@ -1,12 +1,12 @@
-#ifndef HLIB_CRYPTO_MD2_H_
-#define HLIB_CRYPTO_MD2_H_
+#ifndef HTL_CRYPTO_MD2_H_
+#define HTL_CRYPTO_MD2_H_
 
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>
 #include <string_view>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 inline constexpr std::uint8_t MD2_S[256]{
@@ -51,7 +51,10 @@ public:
         context.finalize(dest);
     }
 
-    MD2() noexcept { reset(); }
+    MD2() noexcept
+    {
+        reset();
+    }
 
     void reset() noexcept
     {
@@ -151,6 +154,6 @@ private:
     }
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

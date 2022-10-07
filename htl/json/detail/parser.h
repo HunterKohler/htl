@@ -1,16 +1,16 @@
-#ifndef HLIB_JSON_DETAIL_PARSER_H_
-#define HLIB_JSON_DETAIL_PARSER_H_
+#ifndef HTL_JSON_DETAIL_PARSER_H_
+#define HTL_JSON_DETAIL_PARSER_H_
 
 #include <cmath>
 #include <cstdint>
 #include <charconv>
 #include <limits>
 #include <system_error>
-#include <hlib/algorithm.h>
-#include <hlib/ascii.h>
-#include <hlib/json/common.h>
+#include <htl/algorithm.h>
+#include <htl/ascii.h>
+#include <htl/json/common.h>
 
-namespace hlib::json::detail {
+namespace htl::json::detail {
 
 template <class T, class Allocator>
 using ParseStack =
@@ -525,6 +525,6 @@ public:
     }
 };
 
-} // namespace hlib::json::detail
+} // namespace htl::json::detail
 
 #endif

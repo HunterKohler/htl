@@ -1,11 +1,11 @@
-#ifndef HLIB_ASCII_H_
-#define HLIB_ASCII_H_
+#ifndef HTL_ASCII_H_
+#define HTL_ASCII_H_
 
 #include <cassert>
 #include <cstdint>
-#include <hlib/utility.h>
+#include <htl/utility.h>
 
-namespace hlib {
+namespace htl {
 namespace detail {
 
 enum class ascii_property : std::uint8_t {
@@ -147,6 +147,6 @@ constexpr char ascii_toupper(char c) noexcept
     return detail::ascii_toupper_table[to_unsigned(c)];
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

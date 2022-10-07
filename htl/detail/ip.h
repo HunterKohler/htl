@@ -1,5 +1,5 @@
-#ifndef HLIB_DETAIL_IP_H_
-#define HLIB_DETAIL_IP_H_
+#ifndef HTL_DETAIL_IP_H_
+#define HTL_DETAIL_IP_H_
 
 #include <algorithm>
 #include <system_error>
@@ -7,11 +7,11 @@
 #include <span>
 #include <limits>
 #include <net/if.h>
-#include <hlib/ascii.h>
-#include <hlib/writer.h>
-#include <hlib/scope_guard.h>
+#include <htl/ascii.h>
+#include <htl/writer.h>
+#include <htl/scope_guard.h>
 
-namespace hlib::detail {
+namespace htl::detail {
 
 inline constexpr std::string_view ip_hex_charset = "0123456789abcdef";
 
@@ -157,6 +157,6 @@ inline bool ipv4_from_string(I &&first, S &&last, std::uint8_t *dest)
 template <class I, class S>
 inline bool ipv6_from_string(I &&first, S &&last, std::uint8_t *dest);
 
-} // namespace hlib::detail
+} // namespace htl::detail
 
 #endif

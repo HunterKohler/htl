@@ -1,8 +1,8 @@
 // #include <unordered_set>
 // #include <gtest/gtest.h>
-// #include <hlib/ip.h>
+// #include <htl/ip.h>
 
-// namespace hlib::test {
+// namespace htl::test {
 
 // // struct IPv4AddressTestDataEntry {
 // //     std::string_view string_repr;
@@ -105,4 +105,4 @@
 // //     ASSERT_EQ(hashes.size(), ipv4_address_test_data.size());
 // // }
 
-// } // namespace hlib::test
+// } // namespace htl::test

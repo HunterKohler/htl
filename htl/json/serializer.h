@@ -1,17 +1,17 @@
-#ifndef HLIB_JSON_SERIALIZER_H_
-#define HLIB_JSON_SERIALIZER_H_
+#ifndef HTL_JSON_SERIALIZER_H_
+#define HTL_JSON_SERIALIZER_H_
 
 #include <charconv>
 #include <concepts>
 #include <limits>
 #include <memory>
 #include <vector>
-#include <hlib/ascii.h>
-#include <hlib/json/common.h>
-#include <hlib/json/type.h>
-#include <hlib/detail/iterator.h>
+#include <htl/ascii.h>
+#include <htl/json/common.h>
+#include <htl/json/type.h>
+#include <htl/detail/iterator.h>
 
-namespace hlib::json {
+namespace htl::json {
 namespace detail {
 
 template <class T>
@@ -74,9 +74,15 @@ struct SerializeHelper {
     SerializerStack<T, Allocator> &stack;
     O &out;
 
-    void serialize(Null) { write("null"); }
+    void serialize(Null)
+    {
+        write("null");
+    }
 
-    void serialize(Bool value) { write(value ? "true" : "false"); }
+    void serialize(Bool value)
+    {
+        write(value ? "true" : "false");
+    }
 
     void serialize(std::integral auto value)
     {
@@ -368,6 +374,6 @@ private:
     }
 };
 
-} // namespace hlib::json
+} // namespace htl::json
 
 #endif

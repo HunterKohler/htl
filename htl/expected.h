@@ -1,12 +1,12 @@
-#ifndef HLIB_EXPECTED_H_
-#define HLIB_EXPECTED_H_
+#ifndef HTL_EXPECTED_H_
+#define HTL_EXPECTED_H_
 
 #include <utility>
 #include <ranges>
-#include <hlib/concepts.h>
-#include <hlib/utility.h>
+#include <htl/concepts.h>
+#include <htl/utility.h>
 
-namespace hlib {
+namespace htl {
 
 // [expected.unexpected], class template unexpected
 template <class E>
@@ -1163,6 +1163,6 @@ private:
     }
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

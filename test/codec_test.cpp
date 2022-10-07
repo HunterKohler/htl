@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include <hlib/codec.h>
+#include <htl/codec.h>
 
-namespace hlib {
+namespace htl {
 
 struct CodecTestCase {
     std::vector<std::uint8_t> data;
@@ -444,4 +444,4 @@ TEST(CodecTest, HexEncodeBoundedError)
     }
 }
 
-} // namespace hlib
+} // namespace htl

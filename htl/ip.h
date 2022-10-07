@@ -1,5 +1,5 @@
-#ifndef HLIB_IP_H_
-#define HLIB_IP_H_
+#ifndef HTL_IP_H_
+#define HTL_IP_H_
 
 #include <bit>
 #include <charconv>
@@ -10,13 +10,13 @@
 #include <string_view>
 #include <string>
 #include <typeinfo>
-#include <hlib/detail/ip.h>
-#include <hlib/detail/simple_hash.h>
-#include <hlib/byte_array.h>
-#include <hlib/utility.h>
-#include <hlib/math.h>
+#include <htl/detail/ip.h>
+#include <htl/detail/simple_hash.h>
+#include <htl/byte_array.h>
+#include <htl/utility.h>
+#include <htl/math.h>
 
-namespace hlib {
+namespace htl {
 
 class IPAddress;
 class IPv4Address;
@@ -616,7 +616,7 @@ public:
     {
         if (prefix_length < 0 || prefix_length > 32) {
             throw std::out_of_range(
-                "hlib::IPv4Network(): Invalid prefix length");
+                "htl::IPv4Network(): Invalid prefix length");
         }
     }
 
@@ -628,7 +628,7 @@ public:
 
         if (bits != 32 && value << bits) {
             throw std::invalid_argument(
-                "hlib::IPv4Network(): Invalid network mask");
+                "htl::IPv4Network(): Invalid network mask");
         }
 
         _prefix_length = bits;
@@ -713,7 +713,7 @@ public:
     {
         if (prefix_length > 128) {
             throw std::out_of_range(
-                "hlib::IPv4Network(): Invalid prefix length");
+                "htl::IPv4Network(): Invalid prefix length");
         }
     }
 
@@ -760,49 +760,49 @@ private:
     std::uint8_t _prefix_length;
 };
 
-} // namespace hlib
+} // namespace htl
 
 template <>
-struct std::hash<hlib::IPv4Address> {
-    std::size_t operator()(const hlib::IPv4Address &value) noexcept
+struct std::hash<htl::IPv4Address> {
+    std::size_t operator()(const htl::IPv4Address &value) noexcept
     {
-        return hlib::detail::simple_hash(value._bytes);
+        return htl::detail::simple_hash(value._bytes);
     }
 };
 
 template <>
-struct std::hash<hlib::IPv6Address> {
-    std::size_t operator()(const hlib::IPv6Address &value) noexcept
+struct std::hash<htl::IPv6Address> {
+    std::size_t operator()(const htl::IPv6Address &value) noexcept
     {
-        return hlib::detail::simple_hash(value._bytes, value._scope_id);
+        return htl::detail::simple_hash(value._bytes, value._scope_id);
     }
 };
 
 template <>
-struct std::hash<hlib::IPAddress> {
-    std::size_t operator()(const hlib::IPAddress &value) noexcept
+struct std::hash<htl::IPAddress> {
+    std::size_t operator()(const htl::IPAddress &value) noexcept
     {
         return value.is_v4()
-                   ? hlib::detail::simple_hash(
-                         true, std::hash<hlib::IPv4Address>{}(value._v4))
-                   : hlib::detail::simple_hash(
-                         false, std::hash<hlib::IPv6Address>{}(value._v6));
+                   ? htl::detail::simple_hash(
+                         true, std::hash<htl::IPv4Address>{}(value._v4))
+                   : htl::detail::simple_hash(
+                         false, std::hash<htl::IPv6Address>{}(value._v6));
     }
 };
 
 template <>
-struct std::hash<hlib::IPv4Network> {
-    std::size_t operator()(const hlib::IPv4Network &value) noexcept
+struct std::hash<htl::IPv4Network> {
+    std::size_t operator()(const htl::IPv4Network &value) noexcept
     {
-        return hlib::detail::simple_hash(value._address, value._prefix_length);
+        return htl::detail::simple_hash(value._address, value._prefix_length);
     }
 };
 
 template <>
-struct std::hash<hlib::IPv6Network> {
-    std::size_t operator()(const hlib::IPv6Network &value) noexcept
+struct std::hash<htl::IPv6Network> {
+    std::size_t operator()(const htl::IPv6Network &value) noexcept
     {
-        return hlib::detail::simple_hash(value._address, value._prefix_length);
+        return htl::detail::simple_hash(value._address, value._prefix_length);
     }
 };
 

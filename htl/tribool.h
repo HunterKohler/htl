@@ -1,5 +1,5 @@
-#ifndef HLIB_TRIBOOL_H_
-#define HLIB_TRIBOOL_H_
+#ifndef HTL_TRIBOOL_H_
+#define HTL_TRIBOOL_H_
 
 #include <compare>
 #include <cstddef>
@@ -8,7 +8,7 @@
 #include <string_view>
 #include <string>
 
-namespace hlib {
+namespace htl {
 
 class TriBool {
 public:
@@ -29,7 +29,10 @@ public:
         : _state(static_cast<State>(state + 1))
     {}
 
-    constexpr bool operator!() const noexcept { return _state == State::False; }
+    constexpr bool operator!() const noexcept
+    {
+        return _state == State::False;
+    }
 
     constexpr explicit operator bool() const noexcept
     {
@@ -67,6 +70,6 @@ operator<<(std::basic_ostream<CharT, Traits> &os, TriBool value)
     return os;
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

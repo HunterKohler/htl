@@ -1,5 +1,5 @@
-#ifndef HLIB_TEST_CRYPTO_UTIL_H_
-#define HLIB_TEST_CRYPTO_UTIL_H_
+#ifndef HTL_TEST_CRYPTO_UTIL_H_
+#define HTL_TEST_CRYPTO_UTIL_H_
 
 #include <vector>
 #include <cstddef>
@@ -8,12 +8,12 @@
 #include <iterator>
 #include <filesystem>
 #include <span>
-#include <hlib/ascii.h>
-#include <hlib/codec.h>
-#include <hlib/json/document.h>
-#include <hlib/json/parser.h>
+#include <htl/ascii.h>
+#include <htl/codec.h>
+#include <htl/json/document.h>
+#include <htl/json/parser.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 struct HashTestVector {
     std::vector<std::uint8_t> message;
@@ -167,6 +167,6 @@ inline HashTestSet load_hash_test_set(std::string_view path)
 //     }
 // }
 
-} // namespace hlib::test
+} // namespace htl::test
 
 #endif

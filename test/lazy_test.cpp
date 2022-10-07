@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include <hlib/lazy.h>
+#include <htl/lazy.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 int global_value = 0;
 
@@ -58,4 +58,4 @@ TEST(LazyTest, StoresReferenceResultType)
     ASSERT_EQ(value, 1);
 }
 
-} // namespace hlib::test
+} // namespace htl::test

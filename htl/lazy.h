@@ -1,5 +1,5 @@
-#ifndef HLIB_LAZY_H_
-#define HLIB_LAZY_H_
+#ifndef HTL_LAZY_H_
+#define HTL_LAZY_H_
 
 #include <concepts>
 #include <functional>
@@ -8,13 +8,16 @@
 #include <type_traits>
 #include <utility>
 
-namespace hlib {
+namespace htl {
 
 template <class T>
     requires std::is_object_v<T> && std::is_move_constructible_v<T>
 class DefaultLazyInit {
 public:
-    constexpr T operator()() noexcept(noexcept(T())) { return T(); }
+    constexpr T operator()() noexcept(noexcept(T()))
+    {
+        return T();
+    }
 };
 
 template <class T, class F = DefaultLazyInit<T>>
@@ -130,6 +133,6 @@ Lazy(const F &) -> Lazy<std::invoke_result_t<F>, F>;
 template <std::invocable F>
 Lazy(F &&) -> Lazy<std::invoke_result_t<F>, std::remove_reference_t<F>>;
 
-} // namespace hlib
+} // namespace htl
 
 #endif

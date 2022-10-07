@@ -1,12 +1,12 @@
-#ifndef HLIB_EXPERIMENTAL_BOX_H_
-#define HLIB_EXPERIMENTAL_BOX_H_
+#ifndef HTL_EXPERIMENTAL_BOX_H_
+#define HTL_EXPERIMENTAL_BOX_H_
 
 #include <optional>
 #include <type_traits>
-#include <hlib/compare.h>
-#include <hlib/concepts.h>
+#include <htl/compare.h>
+#include <htl/concepts.h>
 
-namespace hlib {
+namespace htl {
 
 template <class>
 class Box;
@@ -116,26 +116,50 @@ public:
         return *this;
     }
 
-    constexpr T &value() &noexcept { return _value; }
+    constexpr T &value() &noexcept
+    {
+        return _value;
+    }
 
-    constexpr T &&value() &&noexcept { return std::move(_value); }
+    constexpr T &&value() &&noexcept
+    {
+        return std::move(_value);
+    }
 
-    constexpr const T &value() const &noexcept { return _value; }
+    constexpr const T &value() const &noexcept
+    {
+        return _value;
+    }
 
-    constexpr const T &&value() const &&noexcept { return std::move(_value); }
+    constexpr const T &&value() const &&noexcept
+    {
+        return std::move(_value);
+    }
 
-    constexpr T &operator*() &noexcept { return _value; }
+    constexpr T &operator*() &noexcept
+    {
+        return _value;
+    }
 
-    constexpr T &&operator*() &&noexcept { return std::move(_value); }
+    constexpr T &&operator*() &&noexcept
+    {
+        return std::move(_value);
+    }
 
-    constexpr const T &operator*() const &noexcept { return _value; }
+    constexpr const T &operator*() const &noexcept
+    {
+        return _value;
+    }
 
     constexpr const T &&operator*() const &&noexcept
     {
         return std::move(_value);
     }
 
-    constexpr T *operator->() noexcept { return std::addressof(_value); }
+    constexpr T *operator->() noexcept
+    {
+        return std::addressof(_value);
+    }
 
     constexpr const T *operator->() const noexcept
     {
@@ -217,28 +241,55 @@ public:
         return *this;
     }
 
-    constexpr T &value() &noexcept { return *_ptr; }
+    constexpr T &value() &noexcept
+    {
+        return *_ptr;
+    }
 
-    constexpr T &&value() &&noexcept { return std::move(*_ptr); }
+    constexpr T &&value() &&noexcept
+    {
+        return std::move(*_ptr);
+    }
 
-    constexpr const T &value() const &noexcept { return *_ptr; }
+    constexpr const T &value() const &noexcept
+    {
+        return *_ptr;
+    }
 
-    constexpr const T &&value() const &&noexcept { return std::move(*_ptr); }
+    constexpr const T &&value() const &&noexcept
+    {
+        return std::move(*_ptr);
+    }
 
-    constexpr T &operator*() &noexcept { return *_ptr; }
+    constexpr T &operator*() &noexcept
+    {
+        return *_ptr;
+    }
 
-    constexpr T &&operator*() &&noexcept { return std::move(*_ptr); }
+    constexpr T &&operator*() &&noexcept
+    {
+        return std::move(*_ptr);
+    }
 
-    constexpr const T &operator*() const &noexcept { return *_ptr; }
+    constexpr const T &operator*() const &noexcept
+    {
+        return *_ptr;
+    }
 
     constexpr const T &&operator*() const &&noexcept
     {
         return std::move(*_ptr);
     }
 
-    constexpr T *operator->() noexcept { return _ptr; }
+    constexpr T *operator->() noexcept
+    {
+        return _ptr;
+    }
 
-    constexpr const T *operator->() const noexcept { return _ptr; }
+    constexpr const T *operator->() const noexcept
+    {
+        return _ptr;
+    }
 
 private:
     T *_ptr;
@@ -299,6 +350,6 @@ operator<=>(const Box<T> &a, const Box<U> &b)
     return a.value() <=> b.value();
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

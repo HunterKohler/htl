@@ -1,5 +1,5 @@
-#ifndef HLIB_UTILITY_H_
-#define HLIB_UTILITY_H_
+#ifndef HTL_UTILITY_H_
+#define HTL_UTILITY_H_
 
 #include <type_traits>
 #include <concepts>
@@ -9,7 +9,7 @@
 #define __has_builtin(x) 0
 #endif
 
-namespace hlib {
+namespace htl {
 
 template <class... T>
 struct Overload : T... {
@@ -66,6 +66,6 @@ constexpr T implicit_cast(std::type_identity_t<T> value) //
     return value;
 }
 
-} // namespace hlib
+} // namespace htl
 
 #endif

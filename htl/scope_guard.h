@@ -1,5 +1,5 @@
-#ifndef HLIB_SCOPE_GUARD_H_
-#define HLIB_SCOPE_GUARD_H_
+#ifndef HTL_SCOPE_GUARD_H_
+#define HTL_SCOPE_GUARD_H_
 
 #include <cerrno>
 #include <concepts>
@@ -8,7 +8,7 @@
 #include <type_traits>
 #include <utility>
 
-namespace hlib {
+namespace htl {
 
 template <class F>
     requires(std::is_invocable_v<F> &&std::is_same_v<std::decay_t<F>, F>)
@@ -144,6 +144,6 @@ private:
     int _value;
 };
 
-} // namespace hlib
+} // namespace htl
 
 #endif

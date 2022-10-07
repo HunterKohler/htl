@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include <hlib/crypto/md5.h>
+#include <htl/crypto/md5.h>
 
-namespace hlib::test {
+namespace htl::test {
 
 using ByteVector = std::vector<std::uint8_t>;
 using ByteVectorPair = std::pair<ByteVector, ByteVector>;
@@ -70,4 +70,4 @@ TEST(MD5Test, Hash)
     }
 }
 
-} // namespace hlib::test
+} // namespace htl::test

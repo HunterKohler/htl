@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <gtest/gtest.h>
-#include <hlib/tribool.h>
+#include <htl/tribool.h>
 #include "./util/allocator.h"
 
-namespace hlib::test {
+namespace htl::test {
 
 TEST(TriBoolTest, DefaultConstructor)
 {
@@ -70,4 +70,4 @@ TEST(TriBoolTest, Ordering)
     ASSERT_EQ(unordered, ordered);
 }
 
-} // namespace hlib::test
+} // namespace htl::test
