@@ -1,6 +1,8 @@
 #ifndef HTL_DETAIL_BITMASK_H_
 #define HTL_DETAIL_BITMASK_H_
 
+#include <type_traits>
+
 namespace htl::detail {
 
 template <class T>
